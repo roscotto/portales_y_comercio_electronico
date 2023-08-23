@@ -19,14 +19,20 @@ use Illuminate\Support\Facades\Route;
 // b. La URL. Que siempre empieza a partir de la carpeta public. / este es el primer parametro de Route::get
 // c. Una acción. La función anónima que se ejecutará cuando se acceda a la ruta. (segundo parámetro)
 // Puede ser una función anónima o un controlador. En este caso es una función anónima.
-Route::get('/', function () {
     // Todas las acciones de una ruta DEBEN retornar una respuesta, que puede ser una vista/template de HTML, 
     // o alguna otra cosa como un objeto JSON.
     // Si queremos retornar vistas, podemos usar la función view() que nos devuelve una vista.
     // Este método recibe como argumento el nombre de la vista que queremos retornar. sin la extensión .php ni .blade.php
     // Las vistas son templates de HTML que se encuentran en la carpeta resources/views
-    return view('welcome');
-});
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+//cambiamos la ruta de la home para que se abra con un controller.
+
+Route::get('/', ['\App\Http\Controllers\HomeController', 'home']);
+
 
 // Agregamos otras vistas
 
