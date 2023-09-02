@@ -31,15 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 //cambiamos la ruta de la home para que se abra con un controller.
 
-Route::get('/', ['\App\Http\Controllers\HomeController', 'home']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
+Route::get('/quienes-somos', [\App\Http\Controllers\HomeController::class, 'about']);
 
-// Agregamos otras vistas
-
-Route::get('/quienes-somos', function () {
-    return view('about');
-});
-
-Route::get('/peliculas/listado', function () {
-    return view('movies/index');
-});
+Route::get('/peliculas/listado', [\App\Http\Controllers\MoviesController::class, 'index']);
