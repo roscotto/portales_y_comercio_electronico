@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=], initial-scale=1.0">
     <link rel="stylesheet" href=" <?= url('css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href=" <?= url('css/styles.css') ?>">
-
-    <title>Proyecto DV :: Página Principal</title>
+    <!-- La función url() crea una URL absoluta a la carpeta public del proyecto, de manera dinámica-->
+    <title>Proyecto DV :: Listado de Películas</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
             </div>
         </nav>
         <main class="container py-3">
-            <h1>Página Principal</h1>
+            <h1>Listado de Películas</h1>
         </main>
         <footer class="footer">
             <p>Da Vinci &copy; 2023</p>

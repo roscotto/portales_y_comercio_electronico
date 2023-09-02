@@ -8,7 +8,7 @@
     <link rel="stylesheet" href=" <?= url('css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href=" <?= url('css/styles.css') ?>">
 
-    <title>Proyecto DV :: Página Principal</title>
+    <title>Proyecto DV :: Quiénes somos</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
             </div>
         </nav>
         <main class="container py-3">
-            <h1>Página Principal</h1>
+            <h1>Quiénes somos</h1>
         </main>
         <footer class="footer">
             <p>Da Vinci &copy; 2023</p>
