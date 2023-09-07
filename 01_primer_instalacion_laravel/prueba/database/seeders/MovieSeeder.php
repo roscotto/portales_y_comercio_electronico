@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,8 +13,8 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-        // 
-        \DB::table('movies')->insert([
+        //
+        DB::table('movies')->insert([
             [
                 'movie_id' => 1,
                 'title' => 'El Señor de los Anillos: La Comunidad del Anillo',
