@@ -32,7 +32,19 @@ class MoviesController extends Controller
         // buscar la película con el id que recibimos por parámetro utilizando el método find(), de Eloquent, del modelo Movie
         // busca por la clave primaria, que en este caso es movie_id
         return view('movies.detail', [
-            'movie' => Movie::find($id)
+            'movie' => Movie::findOrFail($id)
         ]);
+    }
+
+    public function formCreate()
+    {
+        return view('movies.create');
+    }
+
+    //para recuperar datos de una superglobal utilizaremos el método estático input() de la clase Request
+    public function processCreate(Request $request)
+    {
+        dd($request);
+
     }
 }

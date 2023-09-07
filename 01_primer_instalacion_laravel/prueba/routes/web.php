@@ -39,5 +39,11 @@ Route::get('/peliculas/listado', [\App\Http\Controllers\MoviesController::class,
 
 Route::get('/admin/peliculas', [\App\Http\Controllers\AdminMoviesController::class, 'index']);
 
+//muestra el form (GET)
+Route::get('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, 'formCreate']);
+
+//procesa el form (POST)
+Route::post('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, 'processCreate']);
+
 // ruta con fragmento dinámico
-Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'detail']);
+Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'detail'])->where('id', '[0-9]+');
