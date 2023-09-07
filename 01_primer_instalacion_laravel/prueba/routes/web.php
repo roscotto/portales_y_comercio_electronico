@@ -38,3 +38,6 @@ Route::get('/quienes-somos', [\App\Http\Controllers\HomeController::class, 'abou
 Route::get('/peliculas/listado', [\App\Http\Controllers\MoviesController::class, 'index']);
 
 Route::get('/admin/peliculas', [\App\Http\Controllers\AdminMoviesController::class, 'index']);
+
+// ruta con fragmento dinámico
+Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'detail']);
