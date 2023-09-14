@@ -42,9 +42,8 @@ class MoviesController extends Controller
     }
 
     //para recuperar datos de una superglobal utilizaremos el método estático input() de la clase Request
-    public function processCreate(Request $request)
+    public function processCreate(Request $request) // tenemos que ponerle el tipo de dato Request para que laravel sepa que es un objeto de tipo Request
     {
         dd($request);
-
     }
 }
