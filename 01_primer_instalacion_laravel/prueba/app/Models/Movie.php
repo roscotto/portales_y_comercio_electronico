@@ -5,6 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Movie
+ *
+ * @property int $movie_id
+ * @property string $title
+ * @property int $price
+ * @property string|null $release_date
+ * @property string|null $synopsis
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereMovieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereReleaseDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereSynopsis($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Movie extends Model
 {
     // use HasFactory;
