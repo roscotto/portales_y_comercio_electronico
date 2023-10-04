@@ -9,4 +9,5 @@
 
 @section('content')
 <h1>Página Principal</h1>
+<h2>Prueba</h2>
 @endsection
