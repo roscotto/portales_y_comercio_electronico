@@ -39,4 +39,21 @@ class Movie extends Model
 
     // indicamos las columnas que se pueden rellenar masivamente con el método fill() del modelo. Es decir, las columnas que se pueden rellenar con el método create() del modelo. (mass assignment)
     protected $fillable = ['title', 'price', 'release_date', 'synopsis', 'cover', 'cover_description'];
+
+    public static $rules = [
+        // 'title' => ['required', 'min:3', 'max:255']
+        'title' => 'required|min:3|max:255',
+        'price' => 'required|numeric',
+        'release_date' => 'required|date',
+    ];
+
+    public static $errorMessages = [
+        'title.required' => 'El título es obligatorio',
+        'title.min' => 'El título debe tener al menos :min caracteres',
+        'title.max' => 'El título debe tener como máximo :max caracteres',
+        'price.required' => 'El precio es obligatorio',
+        'price.numeric' => 'El precio debe ser un número',
+        'release_date.required' => 'La fecha de estreno es obligatoria',
+        'release_date.date' => 'La fecha de estreno debe ser una fecha válida',
+    ];
 }

@@ -50,21 +50,7 @@ class MoviesController extends Controller
         // y como segundo parámetro un array asociativo con los mensajes de error
         // si la validación es correcta, retorna los datos validados en un array asociativo
         // si la validación falla, se redirecciona automáticamente a la página anterior y se muestran los errores guardados en la variable de sesion $errors
-        $request->validate([
-            // 'title' => ['required', 'min:3', 'max:255']
-            'title' => 'required|min:3|max:255',
-            'price' => 'required|numeric',
-            'release_date' => 'required|date',
-        ], [
-            'title.required' => 'El título es obligatorio',
-            'title.min' => 'El título debe tener al menos 3 caracteres',
-            'title.max' => 'El título debe tener como máximo 255 caracteres',
-            'price.required' => 'El precio es obligatorio',
-            'price.numeric' => 'El precio debe ser un número',
-            'release_date.required' => 'La fecha de estreno es obligatoria',
-            'release_date.date' => 'La fecha de estreno debe ser una fecha válida',
-
-         ]);
+        $request->validate(Movie::$rules, Movie::$errorMessages);
 
 
 
