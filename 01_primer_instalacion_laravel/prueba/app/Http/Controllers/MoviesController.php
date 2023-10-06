@@ -55,7 +55,16 @@ class MoviesController extends Controller
             'title' => 'required|min:3|max:255',
             'price' => 'required|numeric',
             'release_date' => 'required|date',
-        ]);
+        ], [
+            'title.required' => 'El título es obligatorio',
+            'title.min' => 'El título debe tener al menos 3 caracteres',
+            'title.max' => 'El título debe tener como máximo 255 caracteres',
+            'price.required' => 'El precio es obligatorio',
+            'price.numeric' => 'El precio debe ser un número',
+            'release_date.required' => 'La fecha de estreno es obligatoria',
+            'release_date.date' => 'La fecha de estreno debe ser una fecha válida',
+
+         ]);
 
 
 
