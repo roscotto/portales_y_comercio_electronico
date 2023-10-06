@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label for="release_date" class="form-label">Fecha de Estreno</label>
-            <input type="text" id="release_date" name="release_date" class="form-control">
+            <input type="date" id="release_date" name="release_date" class="form-control">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Precio</label>

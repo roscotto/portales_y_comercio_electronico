@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedInteger('price');
             $table->date('release_date')->nullable();
             $table->text('synopsis')->nullable();
+            $table->string('cover')->nullable();
+            $table->string('cover_description')->nullable();
             // created_at, updated_at => con Eloquent se crean automáticamente
             $table->timestamps();
         });

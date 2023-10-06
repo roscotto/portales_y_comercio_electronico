@@ -44,6 +44,21 @@ class MoviesController extends Controller
     //para recuperar datos de una superglobal utilizaremos el método estático input() de la clase Request
     public function processCreate(Request $request) // tenemos que ponerle el tipo de dato Request para que laravel sepa que es un objeto de tipo Request
     {
-        dd($request);
+        //dd($request);
+        // Capturamos TODOS los datos del formulario con el método input() de la clase Request
+        // dd($request->input());
+
+        // Capturamos los datos del formulario de forma individual
+        //dd($request->input('title'));
+        //dd($request->only(['title', 'price']));
+
+        // Capturamos todos EXCEPTO el token
+        $data = $request->except(['_token']);
+
+        // es necesario establecer la propiedad fillable del modelo Movie
+        Movie::create($data);
+
+        // redireccionamos a la ruta de listado de películas
+        return redirect('/peliculas/listado');
     }
 }

@@ -1,3 +1,10 @@
+<?php
+    /**
+     * @var \App\Models\Movie[]| \Illuminate\Database\Eloquent\Collection $movies */
+
+
+?>
+
 @extends('layouts.main')
 
 @section('title', 'Listado de Películas')
@@ -25,6 +32,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($movies as $movie)
                 <tr>
                     <td>{{ $movie->movie_id }}</td>
