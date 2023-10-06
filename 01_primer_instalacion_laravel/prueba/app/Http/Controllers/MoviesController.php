@@ -44,6 +44,21 @@ class MoviesController extends Controller
     //para recuperar datos de una superglobal utilizaremos el método estático input() de la clase Request
     public function processCreate(Request $request) // tenemos que ponerle el tipo de dato Request para que laravel sepa que es un objeto de tipo Request
     {
+        // Validación de datos
+        // el objeto $request tiene un método validate() que nos permite validar los datos que recibimos del formulario
+        // este método recibe como primer parámetro un array asociativo con las reglas de validación
+        // y como segundo parámetro un array asociativo con los mensajes de error
+        // si la validación es correcta, retorna los datos validados en un array asociativo
+        // si la validación falla, se redirecciona automáticamente a la página anterior y se muestran los errores guardados en la variable de sesion $errors
+        $request->validate([
+            // 'title' => ['required', 'min:3', 'max:255']
+            'title' => 'required|min:3|max:255',
+            'price' => 'required|numeric',
+            'release_date' => 'required|date',
+        ]);
+
+
+
         //dd($request);
         // Capturamos TODOS los datos del formulario con el método input() de la clase Request
         // dd($request->input());
