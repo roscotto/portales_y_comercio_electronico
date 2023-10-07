@@ -52,8 +52,6 @@ class MoviesController extends Controller
         // si la validación falla, se redirecciona automáticamente a la página anterior y se muestran los errores guardados en la variable de sesion $errors
         $request->validate(Movie::$rules, Movie::$errorMessages);
 
-
-
         //dd($request);
         // Capturamos TODOS los datos del formulario con el método input() de la clase Request
         // dd($request->input());
