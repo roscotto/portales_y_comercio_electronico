@@ -31,16 +31,17 @@
             @foreach ($movies as $movie)
                 <tr>
                     <td>{{ $movie->movie_id }}</td>
-                    <td>{{ $movie->title }}</td>
-                    <td>{{ $movie->release_date }}</td>
+                    <td width="20%">{{ $movie->title }}</td>
+                    <td width="10%">{{ $movie->release_date }}</td>
                     <td>{{ $movie->synopsis }}</td>
-                    <td>$ {{ $movie->price }}</td>
+                    <td width="10%">$ {{ $movie->price }}</td>
                     <td>
                         <div class="d-flex gap-2">
                             <a href="{{ url('/peliculas/' . $movie->movie_id) }}" class="btn btn-primary">Detalle</a>
+                            <a href="{{ url('/peliculas/' . $movie->movie_id) . '/editar' }}" class="btn btn-secondary">Editar</a>
                             <a href="{{ url('/peliculas/' . $movie->movie_id . '/eliminar') }}" class="btn btn-danger">Eliminar</a>
 
-                            
+
                         </div>
                     </td>
 

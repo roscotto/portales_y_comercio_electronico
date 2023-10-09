@@ -70,6 +70,8 @@ class MoviesController extends Controller
         return redirect('/peliculas/listado')
         ->with('status.message', 'La película <b>' . e($request->input('title')) . '</b> fue correctamente creada');
     }
+    
+    /* -------------------------------------------------------------------------------------------------------------*/
 
     public function formDelete(int $id)
     {
@@ -77,6 +79,7 @@ class MoviesController extends Controller
             'movie' => Movie::findOrFail($id)
         ]);
     }
+
 
     public function processDelete(int $id)
     {
@@ -90,4 +93,42 @@ class MoviesController extends Controller
         return redirect('/peliculas/listado')
         ->with('status.message', 'La película <b>' . e($movie->title) . '</b> fue correctamente eliminada');
     }
+
+    /* -------------------------------------------------------------------------------------------------------------*/
+
+    /**
+     * Muestra el formulario de edición de una película
+     * @param int $id
+     * @return \Illuminate\View\View
+     *
+     */
+    public function formEdit(int $id)
+    {
+        return view('movies.edit', [
+            'movie' => Movie::findOrFail($id)
+        ]);
+    }
+
+    /**
+     * Procesa el formulario de edición de una película
+     * @param int $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function processEdit(int $id, Request $request)
+    {
+        // buscamos la película que queremos editar
+        $movie = Movie::findOrFail($id);
+
+        // validamos los datos del formulario
+        $request->validate(Movie::$rules, Movie::$errorMessages);
+
+        // actualizamos los campos menos el de token
+        $movie->update($request->except(['_token']));
+
+        // redireccionamos a la ruta de listado de películas
+        return redirect('/peliculas/listado')
+        ->with('status.message', 'La película <b>' . e($movie->title) . '</b> fue correctamente editada');
+    }
+    /* -------------------------------------------------------------------------------------------------------------*/
 }

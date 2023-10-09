@@ -45,10 +45,17 @@ Route::get('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, '
 //procesa el form (POST) - crea la pelicula
 Route::post('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, 'processCreate']);
 
-Route::get('/peliculas/{id}/eliminar', [\App\Http\Controllers\MoviesController::class, 'formDelete']);
+// EDITAR
+Route::get('/peliculas/{id}/editar', [\App\Http\Controllers\MoviesController::class, 'formEdit']);
+//procesa el form (POST) - elimina la pelicula
+Route::post('/peliculas/{id}/editar', [\App\Http\Controllers\MoviesController::class, 'processEdit']);
 
+
+// ELIMINAR
+Route::get('/peliculas/{id}/eliminar', [\App\Http\Controllers\MoviesController::class, 'formDelete']);
 //procesa el form (POST) - elimina la pelicula
 Route::post('/peliculas/{id}/eliminar', [\App\Http\Controllers\MoviesController::class, 'processDelete']);
+
 
 // ruta con fragmento dinámico
 Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'detail'])->where('id', '[0-9]+');
