@@ -35,6 +35,7 @@
 
             <label for="title" class="form-label">Título</label>
             <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror"
+            value="{{ old('title') }}"
             @error('title')
             aria-describedby="error-title"
             aria-invalid="true"
@@ -48,6 +49,7 @@
         <div class="mb-3">
             <label for="release_date" class="form-label">Fecha de Estreno</label>
             <input type="date" id="release_date" name="release_date" class="form-control @error('release_date') is-invalid @enderror"
+            value="{{ old('release_date') }}"
             @error('release_date')
             class="invalid-feedback"
             aria-describedby="error-release_date"
@@ -70,6 +72,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Precio</label>
             <input type="text" id="price" name="price" class="form-control @error('price') is-invalid @enderror"
+            value="{{ old('price') }}"
             @error('price')
             aria-describedby="error-price"
             aria-invalid="true"
@@ -82,11 +85,12 @@
         <div class="mb-3">
             <label for="synopsis" class="form-label">Sinopsis</label>
             <textarea id="synopsis" name="synopsis" class="form-control @error('synopsis') is-invalid @enderror"
+
             @error('synopsis')
             aria-describedby="error-synopsis"
             aria-invalid="true"
             @enderror
-            ></textarea>
+            >{{ old('synopsis') }}</textarea>
             @error('synopsis')
                 <p id="error-synopsis" class="text-danger"> {{ $message }}</p>
             @enderror
@@ -106,6 +110,7 @@
         <div class="mb-3">
             <label for="cover_description" class="form-label">Descripción de la Portada</label>
             <input type="text" id="cover_description" name="cover_description" class="form-control @error('cover_description') is-invalid @enderror"
+            value="{{ old('cover_description') }}"
             @error('cover_description')
             aria-describedby="error-cover_description"
             aria-invalid="true"
