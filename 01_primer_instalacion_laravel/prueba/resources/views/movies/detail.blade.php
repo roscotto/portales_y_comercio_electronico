@@ -18,7 +18,13 @@
                 </ul>
             </div>
             <div class="col-4">
-                <!-- acá va a ir la portada -->
+                @if($movie->cover !== null)
+
+                <img src="{{ url('./storage/' . $movie->cover) }}" alt="{{ $movie->cover_description }}" class="img-fluid">
+
+                @else
+                <p>Esta película no tiene portada</p>
+                @endif
             </div>
         </div>
 
