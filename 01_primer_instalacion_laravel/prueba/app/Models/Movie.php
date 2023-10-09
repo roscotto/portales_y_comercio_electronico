@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $price
  * @property string|null $release_date
  * @property string|null $synopsis
+ * @property string|null $cover
+ * @property string|null $cover_description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Movie newModelQuery()

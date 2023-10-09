@@ -63,6 +63,14 @@ class MoviesController extends Controller
         // Capturamos todos EXCEPTO el token
         $data = $request->except(['_token']);
 
+        // Preguntamos si se subió una imagen
+        if($request->hasFile('cover')){
+            // guardamos la imagen en la carpeta de Storage 'public'
+            // el método store() recibe como primer parámetro el nombre de la carpeta donde queremos guardar el archivo
+            // y como segundo parámetro, el disco donde queremos guardar el archivo
+            $data['cover'] = $request->file('cover')->store('covers');
+        }
+
         // es necesario establecer la propiedad fillable del modelo Movie
         Movie::create($data);
 
@@ -70,7 +78,7 @@ class MoviesController extends Controller
         return redirect('/peliculas/listado')
         ->with('status.message', 'La película <b>' . e($request->input('title')) . '</b> fue correctamente creada');
     }
-    
+
     /* -------------------------------------------------------------------------------------------------------------*/
 
     public function formDelete(int $id)

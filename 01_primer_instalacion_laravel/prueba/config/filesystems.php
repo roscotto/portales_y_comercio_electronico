@@ -29,13 +29,14 @@ return [
     */
 
     'disks' => [
-
+        // este driver sirve para guardar archivos en el disco local, de uso exclusivamente interno de la aplicación. No se puede acceder a los archivos desde la web.
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
             'throw' => false,
         ],
 
+        // este disk sirve para guardar archivos en el disco local, pero que se pueden acceder desde la web.
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

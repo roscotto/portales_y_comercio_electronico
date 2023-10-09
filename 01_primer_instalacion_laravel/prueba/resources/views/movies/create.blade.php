@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    <form action="{{ url('/peliculas/nueva') }}" method="POST">
+    <form action="{{ url('/peliculas/nueva') }}" method="POST" enctype="multipart/form-data" >
 
         <!-- Todas las peticiones por POST deben incluir el token 'csrf' -->
         @csrf
