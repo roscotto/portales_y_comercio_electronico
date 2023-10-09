@@ -71,6 +71,12 @@ class MoviesController extends Controller
         ->with('status.message', 'La película <b>' . e($request->input('title')) . '</b> fue correctamente creada');
     }
 
+    public function formDelete(int $id)
+    {
+        return view('movies.delete', [
+            'movie' => Movie::findOrFail($id)
+        ]);
+    }
 
     public function processDelete(int $id)
     {

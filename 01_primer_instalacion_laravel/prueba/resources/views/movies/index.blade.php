@@ -38,10 +38,9 @@
                     <td>
                         <div class="d-flex gap-2">
                             <a href="{{ url('/peliculas/' . $movie->movie_id) }}" class="btn btn-primary">Detalle</a>
-                            <form action="{{ url('/peliculas/' . $movie->movie_id . '/eliminar') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            <a href="{{ url('/peliculas/' . $movie->movie_id . '/eliminar') }}" class="btn btn-danger">Eliminar</a>
+
+                            
                         </div>
                     </td>
 
