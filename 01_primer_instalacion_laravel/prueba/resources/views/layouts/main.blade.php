@@ -45,6 +45,15 @@
             </div>
         </nav>
         <main class="container py-3">
+            @if (\Session::has('status.message'))
+            <div class="alert alert-{{ \Session::get('status.type') }}">
+
+                <div class="alert alert-success">
+                    <p class="h6">{!! \Session::get('status.message') !!}</p>
+                </div>
+
+            </div>
+        @endif
             <!-- espacio cedido a templates anexos -->
             @yield('content')
         </main>

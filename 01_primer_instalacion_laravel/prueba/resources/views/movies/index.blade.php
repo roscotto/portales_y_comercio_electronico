@@ -1,8 +1,6 @@
 <?php
-    /**
-     * @var \App\Models\Movie[]| \Illuminate\Database\Eloquent\Collection $movies */
-
-
+/**
+ * @var \App\Models\Movie[]| \Illuminate\Database\Eloquent\Collection $movies */
 ?>
 
 @extends('layouts.main')
@@ -12,9 +10,6 @@
 @section('content')
     <h1>Listado de Películas</h1>
 
-    <?php
-    //dd($movies);
-    ?>
     <div>
         <a href="{{ url('peliculas/nueva') }}">Publicar una nueva película</a>
     </div>
@@ -40,7 +35,15 @@
                     <td>{{ $movie->release_date }}</td>
                     <td>{{ $movie->synopsis }}</td>
                     <td>$ {{ $movie->price }}</td>
-                    <td><a href="{{ url('/peliculas/' . $movie->movie_id) }}" class="btn btn-primary">Detalle</a></td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a href="{{ url('/peliculas/' . $movie->movie_id) }}" class="btn btn-primary">Detalle</a>
+                            <form action="{{ url('/peliculas/' . $movie->movie_id . '/eliminar') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </td>
 
                 </tr>
             @endforeach

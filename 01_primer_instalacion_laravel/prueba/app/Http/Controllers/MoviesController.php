@@ -67,6 +67,21 @@ class MoviesController extends Controller
         Movie::create($data);
 
         // redireccionamos a la ruta de listado de películas
-        return redirect('/peliculas/listado');
+        return redirect('/peliculas/listado')
+        ->with('status.message', 'La película <b>' . e($request->input('title')) . '</b> fue correctamente creada');
+    }
+
+
+    public function processDelete(int $id)
+    {
+        // buscamos la película que queremos eliminar
+        $movie = Movie::findOrFail($id);
+
+        // eliminamos la película
+        $movie->delete();
+
+        // redireccionamos a la ruta de listado de películas
+        return redirect('/peliculas/listado')
+        ->with('status.message', 'La película <b>' . e($movie->title) . '</b> fue correctamente eliminada');
     }
 }
