@@ -17,31 +17,41 @@ class MovieSeeder extends Seeder
         DB::table('movies')->insert([
             [
                 'movie_id' => 1,
-                'title' => 'El Señor de los Anillos: La Comunidad del Anillo',
+                'title' => 'Les Misérables',
                 'price' => 2099,
-                'release_date' => '2001-12-02',
-                'synopsis' => 'Unos tipitos se van de paseo para tirar un anillo malo en un volcán.',
+                'release_date' => '2013-02-14',
+                'rating_id' => 3, // M16
+                'synopsis' => 'Después de 19 años como prisionero, Jean Valjean es liberado por Javert, el oficial a cargo de la fuerza de trabajo de la prisión. Valjean viola su libertad y más tarde usa el dinero robado para reinventarse como alcalde y dueño de una fábrica. Por su parte, Javert promete llevar a Valjean de vuelta a la cárcel. Ocho años después, Valjean se convierte en el guardián de un niño llamado Cosette tras la muerte de su madre, pero la persecución de Javert significa que la paz tardará en llegar.',
+                'cover' => 'covers/cover-les-miserables.jpg',
+                'cover_description' => 'Tapa de la película Les Misérables',
                 'created_at' => now(), // now() es una función de Laravel que retorna la fecha y hora actual.
                 'updated_at' => now(),
             ],
             [
                 'movie_id' => 2,
-                'title' => 'El Discurso del Rey',
-                'price' => 1699,
-                'release_date' => '2014-06-12',
-                'synopsis' => 'Un futuro rey tiene problemas para hablar y busca a un doctor que lo ayude.',
+                'title' => 'Seven',
+                'price' => 2099,
+                'release_date' => '1996-02-15',
+                'rating_id' => 3, // M16
+                'synopsis' => 'Somerset es un solitario y veterano detective a punto de retirarse que se encuentra con Mills, un joven impulsivo. Ambos investigan un particular asesinato. Es este el primero de una serie de crímenes que aluden los siete pecados capitales.',
+                'cover' => 'covers/cover-seven.jpg',
+                'cover_description' => 'Tapa de la película Seven',
                 'created_at' => now(), // now() es una función de Laravel que retorna la fecha y hora actual.
                 'updated_at' => now(),
             ],
             [
                 'movie_id' => 3,
-                'title' => 'Matrix',
-                'price' => 1899,
-                'release_date' => '1999-11-22',
-                'synopsis' => 'Neo sigue al conejito y se mete en flor de quilombo.',
+                'title' => 'Big Fish',
+                'price' => 2099,
+                'release_date' => '2004-02-05',
+                'rating_id' => 1, // ATP
+                'synopsis' => 'El joven William Bloom regresa a su casa para cuidar a su padre enfermo, quien cuenta interminables historias sobre su pasado.',
+                'cover' => 'covers/cover-big-fish.jpg',
+                'cover_description' => 'Tapa de la película Big Fish',
                 'created_at' => now(), // now() es una función de Laravel que retorna la fecha y hora actual.
                 'updated_at' => now(),
-            ],
+            ]
+
         ]);
     }
 }
