@@ -12,7 +12,11 @@ class MoviesController extends Controller
 
         // Vamos a usar el modelo de Movie poara hacer consultas a la base de datos
         // El método all() nos devuelve todos los registros de la tabla movies. Retorna una colección de objetos de tipo Movie.(array de objetos del tipo del modelo)
-        $movies = Movie::all();
+        // $movies = Movie::all();
+
+        // evitar problema de N+1 queries utilizamos el método with() del modelo Movie que permite pasarle como parámetro un array asociativo con las relaciones que queremos cargar
+
+        $movies = Movie::with(['rating'])->get();
 
         // dump and die
         //dd($movies);

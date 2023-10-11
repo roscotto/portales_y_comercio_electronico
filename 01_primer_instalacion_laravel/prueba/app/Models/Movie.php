@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Movie
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property int $price
  * @property string|null $release_date
+ * @property int $rating_id
  * @property string|null $synopsis
  * @property string|null $cover
  * @property string|null $cover_description
@@ -27,6 +29,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereSynopsis($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Movie whereUpdatedAt($value)
+ * @property-read \App\Models\Rating $rating
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCover($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCoverDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereRatingId($value)
  * @mixin \Eloquent
  */
 class Movie extends Model
@@ -58,4 +64,26 @@ class Movie extends Model
         'release_date.required' => 'La fecha de estreno es obligatoria',
         'release_date.date' => 'La fecha de estreno debe ser una fecha válida',
     ];
+
+
+
+    /*
+    Relaciones
+    por cada relación, se debe crear un método que devuelva la relación
+    el nombre del método debe ser el mismo que el nombre de la relación. Laravel lo usa para crear
+    una nueva propiedad dinámica en el modelo, que contiene la relación y nos da acceso
+    al modelo relacionado.
+
+    Cada método debe retornar la relación, usando el método de Eloquent correspondiente
+
+    */
+
+     public function rating(): BelongsTo
+     {
+        // belongsTo recibe 3 parámetros:
+        // 1. El modelo al que representa la tabla relacionada
+        // 2. FK de la tabla actual que referencia a la tabla relacionada
+        // 3. ownerKey: PK de la tabla relacionada
+        return $this->belongsTo(Rating::class, 'rating_id', 'id');
+     }
 }

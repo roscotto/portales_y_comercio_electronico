@@ -20,6 +20,7 @@
                 <th>Id</th>
                 <th>Título</th>
                 <th>Fecha de Estreno</th>
+                <th>Clasificación</th>
                 <th>Sinopsis</th>
                 <th>Precio</th>
                 <th>Acciones</th>
@@ -33,6 +34,11 @@
                     <td>{{ $movie->movie_id }}</td>
                     <td width="20%">{{ $movie->title }}</td>
                     <td width="10%">{{ $movie->release_date }}</td>
+                    <?PHP
+                    // $movie->rating ES EL NOMBRE DEL MÉTODO DE LA RELACION
+                    // obtenemos un modelo de tipo Rating con todos los datos del modelo relacionado
+                    ?>
+                    <td width="10%">{{ $movie->rating->abbreviation }}</td>
                     <td>{{ $movie->synopsis }}</td>
                     <td width="10%">$ {{ $movie->price }}</td>
                     <td>
